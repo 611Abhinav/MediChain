@@ -1,8 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
 import Home from "./pages/Home";
 import Signup from "./pages/SignUp/SignupPage";
 
 export default function App() {
+
+  useEffect(() => {
+    // Ping backend once to wake it up
+    fetch(`${import.meta.env.VITE_Backend_API_URL}/health`)
+      .then(() => console.log("Backend is awake"))
+      .catch(() => console.warn("Backend still waking up..."));
+  }, []);
+  
   return (
     <Router>
       <Routes>

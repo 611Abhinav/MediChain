@@ -28,6 +28,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser()); // to parse cookies
 app.use(express.static('public'));
 
+// to wake up the server
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 // auth routes -> jitne bhi req /auth k baad aegi vo authRoutes handle krega
 app.use("/auth", authRoutes);
 app.use("/dashboard", dashboardRoutes);
