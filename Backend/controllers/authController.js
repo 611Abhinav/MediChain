@@ -44,11 +44,9 @@ async function signup(req, res) {
 
     // Validate role
     if (!role || !["patient", "doctor", "hospital"].includes(role)) {
-      return res
-        .status(400)
-        .json({
-          message: "Invalid role. Must be patient, doctor, or hospital",
-        });
+      return res.status(400).json({
+        message: "Invalid role. Must be patient, doctor, or hospital",
+      });
     }
 
     // Validate required fields
@@ -75,23 +73,19 @@ async function signup(req, res) {
 
     if (role === "patient" || role === "doctor") {
       if (!dob || !gender) {
-        return res
-          .status(400)
-          .json({
-            message: "DOB and gender are required for patients and doctors",
-          });
+        return res.status(400).json({
+          message: "DOB and gender are required for patients and doctors",
+        });
       }
       userData = { ...userData, dob, gender };
 
       if (role === "doctor") {
         const { specialization, licenseNumber } = req.body;
         if (!specialization || !licenseNumber) {
-          return res
-            .status(400)
-            .json({
-              message:
-                "Specialization and License Number are required for doctors",
-            });
+          return res.status(400).json({
+            message:
+              "Specialization and License Number are required for doctors",
+          });
         }
         userData = { ...userData, specialization, licenseNumber };
       }
@@ -138,8 +132,8 @@ async function signup(req, res) {
 async function login(req, res) {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(401).render("login", {
-      error: "invalid Credentials",
+    return res.status(401).json({
+      message: "invalid Credentials",
     });
   }
 
@@ -150,16 +144,16 @@ async function login(req, res) {
       (await Hospital.findOne({ email }));
 
     if (!user) {
-      return res.status(404).render("login", {
-        error: "User Not Found",
+      return res.status(404).json({
+        message: "User Not Found",
       });
     }
 
     const isMatch = await bcrypt.compare(password, user.password); // input pass and that found user pass
     if (!isMatch) {
       // if pass is wrong, doesnot match
-      return res.status(401).render("login", {
-        error: "invalid Credentials",
+      return res.status(401).json({
+        message: "invalid Credentials",
       });
     }
 
@@ -180,8 +174,9 @@ async function login(req, res) {
     res.redirect(`/dashboard/${role}`);
   } catch (err) {
     console.error(err);
-    res.status(500).render("error", {
-      message: "Internal Server Error. Please Try Again",
+    res.status(500).json({
+      message:
+        "Internal Server Error. Please Try Reloading the page or try again after some time",
     });
   }
 }
