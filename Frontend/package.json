@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.0",
     "@tailwindcss/vite": "^4.1.17",
     "@theme-toggles/react": "^4.1.0",
     "axios": "^1.13.2",
+    "framer-motion": "^12.23.24",
     "locomotive-scroll": "^4.1.4",
     "lucide-react": "^0.553.0",
     "react": "^19.1.1",
@@ -20,6 +23,7 @@
     "react-parallax-tilt": "^1.7.313",
     "react-router-dom": "^7.9.5",
     "tailwindcss": "^4.1.17",
+    "three": "^0.181.1",
     "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {

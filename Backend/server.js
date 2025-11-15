@@ -18,7 +18,7 @@ app.use(cors({
   credentials: true // This allows cookies/sessions to be sent
 }));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 connectToMongoDB(process.env.MONGO_URI);
 
