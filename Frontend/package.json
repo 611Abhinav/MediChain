@@ -15,19 +15,27 @@
     "@tailwindcss/vite": "^4.1.17",
     "@theme-toggles/react": "^4.1.0",
     "axios": "^1.13.2",
+<<<<<<< HEAD
     "framer-motion": "^12.23.24",
+=======
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+>>>>>>> 1054b36c5daecfe892b0c477e9a9f01bc0fdfa2e
     "locomotive-scroll": "^4.1.4",
     "lucide-react": "^0.553.0",
+    "motion": "^12.23.24",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-parallax-tilt": "^1.7.313",
     "react-router-dom": "^7.9.5",
+    "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17",
     "three": "^0.181.1",
     "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
+    "@types/node": "^24.10.1",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.4",
@@ -35,6 +43,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
+    "tw-animate-css": "^1.4.0",
     "vite": "^7.1.7"
   }
 }

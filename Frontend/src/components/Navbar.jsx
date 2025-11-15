@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ShieldCheck, Sun, Moon } from "lucide-react";
+import { Menu, X, ShieldCheck } from "lucide-react";
 import { Classic } from "@theme-toggles/react";
 import "@theme-toggles/react/css/Classic.css";
+import { LiquidButton } from "@/components/ui/shadcn-io/liquid-button";
 
 export default function Navbar({ locoScrollRef }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,12 +88,9 @@ export default function Navbar({ locoScrollRef }) {
             >
               Log in
             </Link>
-            <Link
-              to="/signup"
-              className="px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg transition-all transform hover:-translate-y-0.5 dark:bg-greenish dark:hover:bg-[#7fe5d8] dark:text-navbar-bg"
-            >
-              Sign Up
-            </Link>
+            <LiquidButton className="dark:hover:text-white">
+              <Link to="/signup">Sign Up</Link>
+            </LiquidButton>
           </div>
 
           {/* 4. MOBILE TOGGLE */}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Github, Linkedin } from "lucide-react";
+import { LiquidButton } from "./ui/shadcn-io/liquid-button";
 
 const developers = [
   {
@@ -50,15 +51,16 @@ export default function Footer() {
         </div>
 
         <div className="mb-0 text-center">
-          <a
-            href="https://github.com/theadarsh1m/MediChain"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3  bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700  dark:bg-greenish dark:text-slate-900 dark:hover:bg-[#00e0c4] transition-all transform hover:-translate-y-0.5"
-          >
-            <Github className="inline-block w-5 h-5 mr-2" />
-            Contribute on GitHub
-          </a>
+          <LiquidButton>
+            <a
+              href="https://github.com/theadarsh1m/MediChain"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="inline-block w-5 h-5 mr-2" />
+              Contribute on GitHub
+            </a>
+          </LiquidButton>
         </div>
       </div>
     </footer>

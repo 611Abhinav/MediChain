@@ -1,5 +1,6 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
+import { LiquidButton } from "./ui/shadcn-io/liquid-button";
 
 export default function Hero() {
   return (
@@ -23,24 +24,27 @@ export default function Hero() {
         >
           <Typewriter
             options={{
-              strings: ["A blockchain-secured, three-portal medical record & hospital management system for Patients, Doctors, and Hospitals.", "Your secure, unified, and permanent medical record.", ],
-              delay:50,
-              deleteSpeed:25,
+              strings: [
+                "A blockchain-secured, three-portal medical record & hospital management system for Patients, Doctors, and Hospitals.",
+                "Your secure, unified, and permanent medical record.",
+              ],
+              delay: 50,
+              deleteSpeed: 20,
               autoStart: true,
               loop: true,
               pauseFor: 2000,
             }}
           />
         </div>
-        <a
-          href="#features"
-          className="reveal reveal-up inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-colors dark:bg-gray-700 dark:hover:bg-gray-600"
-          data-scroll
-          data-scroll-speed="1.4"
-          data-scroll-to // This tells Locomotive Scroll to handle the anchor link
-        >
-          Explore The Portals
-        </a>
+        <LiquidButton className="text-md" size="lg">
+          <a
+            href="#features"
+            data-scroll-speed="1.4"
+            data-scroll-to // This tells Locomotive Scroll to handle the anchor link
+          >
+            Explore The Portals
+          </a>
+        </LiquidButton>
       </div>
     </section>
   );
