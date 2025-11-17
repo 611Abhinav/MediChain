@@ -4,6 +4,7 @@ import LoginForm from "../components/LoginForm";
 import Navbar from "../components/Navbar";
 import { useTheme } from "../context/ThemeContext";
 import Typewriter from "typewriter-effect";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const signupTexts = [
   "Please sanitize your hands before signing up.",
@@ -20,7 +21,11 @@ const loginTexts = [
 ];
 
 export default function SignupLoginPage() {
-  const [mode, setMode] = useState("signup");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const mode = location.pathname === "/login" ? "signin" : "signup";
+
   const { isDark } = useTheme();
 
   const typewriterTexts = mode === "signup" ? signupTexts : loginTexts;
@@ -67,7 +72,7 @@ export default function SignupLoginPage() {
                 }`}
               >
                 <button
-                  onClick={() => setMode("signup")}
+                  onClick={() => navigate("/signup")}
                   className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer ${
                     mode === "signup"
                       ? isDark
@@ -81,7 +86,7 @@ export default function SignupLoginPage() {
                   Sign up
                 </button>
                 <button
-                  onClick={() => setMode("signin")}
+                  onClick={() => navigate("/login")}
                   className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer ${
                     mode === "signin"
                       ? isDark
@@ -139,7 +144,7 @@ export default function SignupLoginPage() {
               <>
                 Already have an account?{" "}
                 <button
-                  onClick={() => setMode("signin")}
+                  onClick={() => navigate("/login")}
                   className={`font-semibold hover:underline ${
                     isDark ? "text-blue-400" : "text-blue-600"
                   }`}
@@ -151,7 +156,7 @@ export default function SignupLoginPage() {
               <>
                 Don't have an account?{" "}
                 <button
-                  onClick={() => setMode("signup")}
+                  onClick={() => navigate("/signup")}
                   className={`font-semibold hover:underline ${
                     isDark ? "text-blue-400" : "text-blue-600"
                   }`}
