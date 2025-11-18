@@ -3,7 +3,7 @@ import axios from "axios";
 import { Chrome } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useNavigate } from "react-router-dom"; 
-
+import toast from 'react-hot-toast';
 export default function LoginForm() {
   const API_URL = import.meta.env.VITE_Backend_API_URL;
   const { isDark } = useTheme();
@@ -21,12 +21,15 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       const response = await axios.post(`${API_URL}/auth/login`, data);
+      
       console.log(response)
       
       navigate(response.data.redirectTo); 
+      toast.success("wooof u made it !!"); 
 
     } catch (err) {
-      alert(err?.response?.data?.message || "Login failed"); // later to implement error or popup
+      toast.error( "Hands Unsanitized !!! "|| err?.response?.data?.message );// login poop up 
+      // alert(err?.response?.data?.message || "Login failed"); // later to implement error or popup
     }
   };
 
