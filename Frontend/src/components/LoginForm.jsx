@@ -3,8 +3,11 @@ import axios from "axios";
 import { Chrome } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useNavigate } from "react-router-dom"; 
+import usePatientStore from "../Store/PatientStore.jsx";
 
 export default function LoginForm() {
+  const setPatientData = usePatientStore((state) => state.setPatientData);
+
   const API_URL = import.meta.env.VITE_Backend_API_URL;
   const { isDark } = useTheme();
   const navigate = useNavigate();
@@ -21,7 +24,8 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       const response = await axios.post(`${API_URL}/auth/login`, data);
-      console.log(response)
+      console.log(response.data.user)
+      setPatientData(response.data.user); 
       
       navigate(response.data.redirectTo); 
 

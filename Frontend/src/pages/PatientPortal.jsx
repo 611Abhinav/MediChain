@@ -4,6 +4,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
 import { motion, AnimatePresence } from "framer-motion";
+import usePatientStore from "../Store/PatientStore";
 
 /*
   Final PatientPortal.jsx
@@ -187,6 +188,8 @@ function Donut({ percent = 80, size = 140 }) {
 
 // ---------- Main Component ----------
 export default function PatientPortal() {
+  const { patientData } = usePatientStore(); // getting patientData form backend as:eg., patientData.name
+
   const [patient, setPatient] = useState(null);
   const [loading, setLoading] = useState(true);
   const [openCloud, setOpenCloud] = useState(true);
@@ -318,6 +321,7 @@ export default function PatientPortal() {
   return (
     <div style={{ height: "100vh", width: "100%", background: "linear-gradient(180deg,#e8efff,#e6eefc)", padding: 18, boxSizing: "border-box" }}>
       {/* header */}
+      <div><h1 className="text-2xl font-bold mb-4">Welcome, {patientData.name}</h1></div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
         <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
           <div style={{ fontWeight: 900, fontSize: 20 }}>MediVault</div>
