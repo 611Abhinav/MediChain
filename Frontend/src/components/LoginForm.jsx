@@ -28,7 +28,7 @@ export default function LoginForm() {
       toast.success("wooof u made it !!"); 
 
     } catch (err) {
-      toast.error( "Hands Unsanitized !!! "|| err?.response?.data?.message );// login poop up 
+      toast.error(  err?.response?.data?.message || "Server is crying in a corner. Please retry later. !!! ");// login poop up 
       // alert(err?.response?.data?.message || "Login failed"); // later to implement error or popup
     }
   };

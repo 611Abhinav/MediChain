@@ -50,8 +50,8 @@ export default function SignupForm() {
       await axios.post(`${API_URL}/auth/signup`, payload);
       navigate(`/dashboard/${role}`);
     } catch (err) {
-      toast.error("Login Failed Due to some germs in ur hands"|| err?.response?.data?.message );
-      alert(err?.response?.data?.message || "Signup failed"); // later to implement error or popup
+      toast.error(err?.response?.data?.message || "Login Failed Due to some germs in ur hands" );
+      // alert(err?.response?.data?.message || "Signup failed"); // later to implement error or popup
     } finally {
       setLoading(false);
     }
