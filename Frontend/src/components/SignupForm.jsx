@@ -4,7 +4,7 @@ import RoleSelector from "./RoleSelector";
 import { Loader2, Chrome } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useNavigate } from "react-router-dom";
-
+import toast from 'react-hot-toast';
 export default function SignupForm() {
   const navigate = useNavigate();
   const API_URL = import.meta.env.VITE_Backend_API_URL;
@@ -50,7 +50,8 @@ export default function SignupForm() {
       await axios.post(`${API_URL}/auth/signup`, payload);
       navigate(`/dashboard/${role}`);
     } catch (err) {
-      alert(err?.response?.data?.message || "Signup failed"); // later to implement error or popup
+      toast.error(err?.response?.data?.message || "Login Failed Due to some germs in ur hands" );
+      // alert(err?.response?.data?.message || "Signup failed"); // later to implement error or popup
     } finally {
       setLoading(false);
     }

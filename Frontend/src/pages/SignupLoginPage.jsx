@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import { useTheme } from "../context/ThemeContext";
 import Typewriter from "typewriter-effect";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import { Toaster } from "react-hot-toast";
 const signupTexts = [
   "Please sanitize your hands before signing up.",
   "Your health data will love its new home.",
@@ -38,6 +38,17 @@ export default function SignupLoginPage() {
           : "bg-linear-to-br from-blue-50 via-white to-purple-50 text-black"
       }`}
     >
+      <Toaster 
+        position="top-center" 
+        reverseOrder={false} 
+        toastOptions={{
+          duration: 4000,
+          style: {
+             background: isDark ? '#333' : '#fff',
+             color: isDark ? '#fff' : '#000',
+          }
+        }}
+      />
       <Navbar />
 
       <div className="fixed inset-0 z-0">
